@@ -1,0 +1,24 @@
+buildscript {
+  repositories {
+    mavenLocal()
+    jcenter()
+  }
+
+  dependencies {
+    classpath 'org.akhikhl.wuff:wuff-plugin:+'
+  }
+}
+
+subprojects {
+
+  repositories {
+    mavenLocal()
+    jcenter()
+  }
+
+  apply plugin: 'java'
+  if(name == 'MyRcpApp')
+    apply plugin: 'org.akhikhl.wuff.eclipse-rcp-app'
+  else
+    apply plugin: 'org.akhikhl.wuff.eclipse-bundle'
+}
